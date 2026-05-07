@@ -8,7 +8,7 @@ internal class Program
                "0 = Exit \n" +
                "1 = Add vehicle \n" +
                "2 = List all vehicles \n";
-    const string garageStart = "Lets create a garage. How many spaces do you want in the garage?"
+    const string garageStart = "Lets create a garage. How many spaces do you want in the garage?";
     public static void Main()
     {
         Console.Write(garageStart);
@@ -22,8 +22,7 @@ internal class Program
             bool looping = true;
             while (looping)
             {
-                Console.WriteLine(garageMenu);
-                
+                LoopDisplay(looping, garageMenu);
             }
         }
         catch (Exception ex)
@@ -35,5 +34,33 @@ internal class Program
         {
             Console.ResetColor();
         }
+    }
+
+    public static bool LoopDisplay(bool looping, string garageMenu)
+    {
+        Console.WriteLine(garageMenu);
+        Console.Write("Ditt val: ");
+
+        string? input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "0":
+                looping = false;
+                Console.WriteLine("Leaving the garage");
+                break;
+            case "1":
+                Console.WriteLine("Todo, add vehicle");
+                break;
+            case "2":
+                Console.WriteLine("Todo, display vehicles");
+                break;
+            default:
+                Helper.WriteErrorMessage("Felaktig input, välj 0-4.");
+                break;
+        }
+
+        Console.WriteLine();
+        return looping;
     }
 }
