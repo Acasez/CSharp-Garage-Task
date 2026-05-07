@@ -12,18 +12,19 @@ internal class Program
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage?";
     public static void Main()
     {
-        Console.Write(garageStart);
-        if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
-        {
-            Helper.WriteErrorMessage("Error, not a interger");
-        }
-
         try
         {
+            Console.Write(garageStart);
+            if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            Garage ourGarage = new Garage(garageSpaces);
+
             bool looping = true;
             while (looping)
             {
-                LoopDisplay(looping);
+                looping = LoopDisplay(looping);
             }
         }
         catch (Exception ex)
