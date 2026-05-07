@@ -6,6 +6,13 @@ namespace CSharp_Garage_Task
 {
     internal class Garage
     {
+        public enum VehicleTypes
+        {
+            Car,
+            Motorcycle,
+            Boat,
+            Airplane
+        }
         List<Vehicle> vehicles = new List<Vehicle>();
         public int GarageCapacity { get; private set; }
         public Garage(int size)

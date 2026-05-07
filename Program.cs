@@ -5,11 +5,12 @@ using System.Linq;
 internal class Program
 {
     const string garageMenu = "Welcome to the garage. \n" +
-               "Select an option. \n" +
-               "0 = Exit \n" +
-               "1 = Add vehicle \n" +
-               "2 = List all vehicles \n";
+        "Select an option. \n" +
+        "0 = Exit \n" +
+        "1 = Add vehicle \n" +
+        "2 = List all vehicles \n";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage?";
+    
     public static void Main()
     {
         try
@@ -64,5 +65,43 @@ internal class Program
 
         Console.WriteLine();
         return looping;
+    }
+
+    const string vehicleCreation = "Lets create a vehicle. What type do you want?" +
+        "1 = Car \n" +
+        "2 = Motorcycle \n" +
+        "3 = Boat \n" +
+        "4 = Airplane \n";
+
+    public static void AddVehicle()
+    {
+        Console.WriteLine(vehicleCreation);
+        Console.Write("Your choice: ");
+
+        string? input = Console.ReadLine();
+        Garage.VehicleTypes vehicleType = Garage.VehicleTypes.Car;
+        
+        switch (input)
+        {
+            case "1":
+                Console.WriteLine("Creating car");
+                break;
+            case "2":
+                Console.WriteLine("Creating motorcycle");
+                vehicleType = Garage.VehicleTypes.Motorcycle;
+                break;
+            case "3":
+                Console.WriteLine("Creating boat");
+                vehicleType = Garage.VehicleTypes.Boat;
+                break;
+            case "4":
+                Console.WriteLine("Creating airplane");
+                vehicleType = Garage.VehicleTypes.Airplane;
+                break;
+            default:
+                Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                break;
+        }
+        Console.Write("Write name, register ID and color separated by spaces");
     }
 }
