@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp_Garage_Task;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 internal class Program
@@ -14,7 +15,7 @@ internal class Program
         Console.Write(garageStart);
         if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
         {
-            Console.Write("Error, not a interger");
+            Helper.WriteErrorMessage("Error, not a interger");
         }
 
         try
@@ -22,7 +23,7 @@ internal class Program
             bool looping = true;
             while (looping)
             {
-                LoopDisplay(looping, garageMenu);
+                LoopDisplay(looping);
             }
         }
         catch (Exception ex)
@@ -36,10 +37,10 @@ internal class Program
         }
     }
 
-    public static bool LoopDisplay(bool looping, string garageMenu)
+    public static bool LoopDisplay(bool looping)
     {
         Console.WriteLine(garageMenu);
-        Console.Write("Ditt val: ");
+        Console.Write("Your choice: ");
 
         string? input = Console.ReadLine();
 
@@ -56,7 +57,7 @@ internal class Program
                 Console.WriteLine("Todo, display vehicles");
                 break;
             default:
-                Helper.WriteErrorMessage("Felaktig input, välj 0-4.");
+                Helper.WriteErrorMessage("Invalid input, select a valid one.");
                 break;
         }
 
