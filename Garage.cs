@@ -13,13 +13,14 @@ namespace CSharp_Garage_Task
             Boat,
             Airplane
         }
-        List<Vehicle> vehicles = new List<Vehicle>();
+        Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
         public Garage(int size)
         {
             if (size > 0)
             {
                 GarageCapacity = size;
+                vehicles = new Vehicle[size];
             }
             else
             {

@@ -10,7 +10,7 @@ internal class Program
         "1 = Add vehicle \n" +
         "2 = List all vehicles \n";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage?";
-    
+
     public static void Main()
     {
         try
@@ -73,6 +73,7 @@ internal class Program
         "3 = Boat \n" +
         "4 = Airplane \n";
 
+
     public static void AddVehicle()
     {
         Console.WriteLine(vehicleCreation);
@@ -102,6 +103,32 @@ internal class Program
                 Helper.WriteErrorMessage("Invalid input, select a valid one.");
                 break;
         }
-        Console.Write("Write name, register ID and color separated by spaces");
+        Console.Write("Write vehicle name: ");
+        string vehicleName = Console.ReadLine();
+        Console.Write("Write register ID");
+        string vehicleID = Console.ReadLine();
+        Console.Write("Write vehicle color");
+        string vehicleColor = Console.ReadLine();
+        Vehicle newVehicle = null;
+        switch (vehicleType)
+        {
+            case Garage.VehicleTypes.Car:
+                newVehicle = new Car(vehicleName, vehicleName, vehicleColor);
+                break;
+            case Garage.VehicleTypes.Motorcycle:
+                newVehicle = new Car(vehicleName, vehicleName, vehicleColor);
+                break;
+            case "3":
+                Console.WriteLine("Creating boat");
+                vehicleType = Garage.VehicleTypes.Boat;
+                break;
+            case "4":
+                Console.WriteLine("Creating airplane");
+                vehicleType = Garage.VehicleTypes.Airplane;
+                break;
+            default:
+                Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                break;
+        }
     }
 }
