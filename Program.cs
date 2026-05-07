@@ -25,7 +25,7 @@ internal class Program
             bool looping = true;
             while (looping)
             {
-                looping = LoopDisplay(looping);
+                looping = LoopDisplay(looping, ourGarage);
             }
         }
         catch (Exception ex)
@@ -39,7 +39,7 @@ internal class Program
         }
     }
 
-    public static bool LoopDisplay(bool looping)
+    public static bool LoopDisplay(bool looping, Garage garage)
     {
         Console.WriteLine(garageMenu);
         Console.Write("Your choice: ");
@@ -53,10 +53,10 @@ internal class Program
                 Console.WriteLine("Leaving the garage");
                 break;
             case "1":
-                Console.WriteLine("Todo, add vehicle");
+                garage.AddVehicle();
                 break;
             case "2":
-                Console.WriteLine("Todo, display vehicles");
+                garage.DisplayVehicles();
                 break;
             default:
                 Helper.WriteErrorMessage("Invalid input, select a valid one.");
@@ -65,70 +65,5 @@ internal class Program
 
         Console.WriteLine();
         return looping;
-    }
-
-    const string vehicleCreation = "Lets create a vehicle. What type do you want?" +
-        "1 = Car \n" +
-        "2 = Motorcycle \n" +
-        "3 = Boat \n" +
-        "4 = Airplane \n";
-
-
-    public static void AddVehicle()
-    {
-        Console.WriteLine(vehicleCreation);
-        Console.Write("Your choice: ");
-
-        string? input = Console.ReadLine();
-        Garage.VehicleTypes vehicleType = Garage.VehicleTypes.Car;
-        
-        switch (input)
-        {
-            case "1":
-                Console.WriteLine("Creating car");
-                break;
-            case "2":
-                Console.WriteLine("Creating motorcycle");
-                vehicleType = Garage.VehicleTypes.Motorcycle;
-                break;
-            case "3":
-                Console.WriteLine("Creating boat");
-                vehicleType = Garage.VehicleTypes.Boat;
-                break;
-            case "4":
-                Console.WriteLine("Creating airplane");
-                vehicleType = Garage.VehicleTypes.Airplane;
-                break;
-            default:
-                Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                break;
-        }
-        Console.Write("Write vehicle name: ");
-        string vehicleName = Console.ReadLine();
-        Console.Write("Write register ID");
-        string vehicleID = Console.ReadLine();
-        Console.Write("Write vehicle color");
-        string vehicleColor = Console.ReadLine();
-        Vehicle newVehicle = null;
-        switch (vehicleType)
-        {
-            case Garage.VehicleTypes.Car:
-                newVehicle = new Car(vehicleName, vehicleName, vehicleColor);
-                break;
-            case Garage.VehicleTypes.Motorcycle:
-                newVehicle = new Car(vehicleName, vehicleName, vehicleColor);
-                break;
-            case "3":
-                Console.WriteLine("Creating boat");
-                vehicleType = Garage.VehicleTypes.Boat;
-                break;
-            case "4":
-                Console.WriteLine("Creating airplane");
-                vehicleType = Garage.VehicleTypes.Airplane;
-                break;
-            default:
-                Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                break;
-        }
     }
 }
