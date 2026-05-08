@@ -12,7 +12,8 @@ internal class Program
         "2 = List garage spaces \n" +
         "3 = Remove vehicle \n" +
         "4 = List all vehicles of a type \n" +
-        "5 = List vehicles types";
+        "5 = List vehicles types \n" +
+        "6 = List all vehicles (filterable)";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage? \n"+
         "Type -1 for predefined luxury garage. \n" +
         "Type -2 for predefined huge garage. \n" +
@@ -93,6 +94,9 @@ internal class Program
                 break;
             case "5":
                 garage.ListVehiclesTypes();
+                break;
+            case "6":
+                garage.ListAllVehicles();
                 break;
             default:
                 Helper.WriteErrorMessage("Invalid input, select a valid one.");

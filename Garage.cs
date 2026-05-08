@@ -9,6 +9,10 @@ namespace CSharp_Garage_Task
     {
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
+        const string vehicleFilter = "What should we filter for? \n"
+            + "1 - Vehicle Type \n"
+            + "2 - Vehicle Color \n"
+            + "3 - Wheel Count \n";
         public enum VehicleTypes
         {
             Car,
@@ -216,6 +220,19 @@ namespace CSharp_Garage_Task
                     Helper.WriteMessage(vehicles[i].ToString());
                 }
             }
+        }
+        
+
+        internal void ListAllVehicles()
+        {
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                if (vehicles[i] != null)
+                {
+                    Helper.WriteMessage(vehicles[i].ToString());
+                }
+            }
+            Helper.WriteMessage(vehicleFilter);
         }
 
         internal void ListVehiclesTypes()
