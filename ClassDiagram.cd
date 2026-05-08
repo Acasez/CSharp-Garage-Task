@@ -9,7 +9,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.Garage">
-    <Position X="9.5" Y="3" Width="1.5" />
+    <Position X="9.5" Y="3.5" Width="1.5" />
     <NestedTypes>
       <Enum Name="CSharp_Garage_Task.Garage.VehicleTypes" Collapsed="true">
         <TypeIdentifier>
@@ -23,7 +23,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAIACAAAAAAAAAAGAAAAAAAAEAAAgCAgAAAAAAAAA=</HashCode>
+      <HashCode>AIAEIACAAAAAAAAAAGAAAAAAAAEAAAgKAgAAACAACAE=</HashCode>
       <FileName>Garage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -44,7 +44,7 @@
   <Class Name="CSharp_Garage_Task.Vehicle">
     <Position X="7" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAABQAAAAAAAAQAAAAgAACAAA=</HashCode>
+      <HashCode>gAAAAAAAAAAAAAAEAAAAABQAAAAAAAAQAAAAgAACAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>

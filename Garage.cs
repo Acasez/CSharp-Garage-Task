@@ -115,9 +115,9 @@ namespace CSharp_Garage_Task
                 return;
             }
 
-            Console.WriteLine(vehicleCreation);
+            Helper.WriteMessage(vehicleCreation);
             VehicleTypes vehicleType = GetVehicleType();
-            Console.WriteLine("Creating " + vehicleType);
+            Helper.WriteMessage("Creating " + vehicleType);
 
             Helper.WriteMessage("Write vehicle name: ");
             string vehicleName = Console.ReadLine();
@@ -183,6 +183,7 @@ namespace CSharp_Garage_Task
                 Vehicle vehicle = GetVehicleByID(vehicleID);
                 Helper.WriteMessage("Removing vehicle" + vehicle.ToString());
                 vehicles[vehicle.parkedNumber] = null;
+                ParkedVehicles --;
                 return;
             }
         }
