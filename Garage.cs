@@ -57,11 +57,11 @@ namespace CSharp_Garage_Task
             {
                 if (vehicles[i] != null)
                 {
-                    Helper.WriteMessage(vehicles[i].ToString() + " parked at space " + i);
+                    Helper.WriteMessage("Space " + i + " - " + vehicles[i].ToString());
                 }
                 else
                 {
-                    Helper.WriteMessage("No vehicles parked at space " + i);
+                    Helper.WriteMessage("Space " + i + " - No vehicles parked");
                 }
             }
         }

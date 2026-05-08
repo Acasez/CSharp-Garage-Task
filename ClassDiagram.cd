@@ -10,6 +10,9 @@
   </Class>
   <Class Name="CSharp_Garage_Task.Garage">
     <Position X="9.5" Y="3.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Enum Name="CSharp_Garage_Task.Garage.VehicleTypes" Collapsed="true">
         <TypeIdentifier>
@@ -72,7 +75,7 @@
   <Class Name="CSharp_Garage_Task.PredefinedGarages">
     <Position X="4" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PredefinedGarages.cs</FileName>
     </TypeIdentifier>
   </Class>

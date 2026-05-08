@@ -1,6 +1,7 @@
 ﻿using CSharp_Garage_Task;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 internal class Program
 {
@@ -13,7 +14,8 @@ internal class Program
         "4 = List all vehicles of a type \n" +
         "5 = List vehicles types";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage? \n"+
-        "Type -1 for predefined luxury garage.";
+        "Type -1 for predefined luxury garage. \n" +
+        "Type -2 for predefined huge garage. \n";
 
     public static void Main()
     {
@@ -25,13 +27,22 @@ internal class Program
                 Helper.WriteErrorMessage("Error, not a interger");
             }
             Garage ourGarage = null;
-            if (garageSpaces == -1)
-            {
-                ourGarage = PredefinedGarages.LuxuryGarage();
-            }
-            else
+
+            if (garageSpaces > 0)
             {
                 ourGarage = new Garage(garageSpaces);
+            }
+            switch (garageSpaces)
+            {
+                case -1:
+                    ourGarage = PredefinedGarages.LuxuryGarage();
+                    break;
+                case -2:
+                    ourGarage = PredefinedGarages.HugeGarage();
+                    break;
+                default:
+                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                    break;
             }
 
             bool looping = true;
