@@ -42,11 +42,11 @@ namespace CSharp_Garage_Task
             Vehicle schoolBus = new Car("schoolBus", "123BUS", VehicleColors.Yellow, VehicleTypes.Bus, 5);
             hugeGarage.AddPredefinedVehicle(schoolBus, 5);
 
-            Vehicle ordinaryBus = new Car("ordinaryBus", "123BUS", VehicleColors.Red, VehicleTypes.Bus, 6);
+            Vehicle ordinaryBus = new Car("ordinaryBus", "321BUS", VehicleColors.Red, VehicleTypes.Bus, 6);
             hugeGarage.AddPredefinedVehicle(ordinaryBus, 6);
 
             Vehicle coolerBike = new Airplane("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 7);
-            hugeGarage.AddPredefinedVehicle(coolerBike, 1);
+            hugeGarage.AddPredefinedVehicle(coolerBike, 7);
             return hugeGarage;
         }
     }

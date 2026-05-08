@@ -42,13 +42,6 @@ namespace CSharp_Garage_Task
                 throw new ArgumentException("Garage cannot be smaller than 0");
             }
         }
-        public void DisplayVehicles()
-        {
-            Helper.WriteMessage("There are " + ParkedVehicles + " vehicles");
-            for (int i = 0; i < ParkedVehicles; i++) {
-                Helper.WriteMessage(vehicles[i].ToString());
-            }
-        }
 
         public void DisplayGarageSpaces()
         {
@@ -68,9 +61,9 @@ namespace CSharp_Garage_Task
 
         public Vehicle? GetVehicleByID(string ID)
         {
-            for (int i = 0; i < ParkedVehicles; i++)
+            for (int i = 0; i < vehicles.Length; i++)
             {
-                if (vehicles[i].RegisterID == ID)
+                if (vehicles[i] != null && vehicles[i].RegisterID == ID)
                 {
                     return vehicles[i];
                 }
@@ -176,7 +169,7 @@ namespace CSharp_Garage_Task
 
         internal void RemoveVehicle()
         {
-            DisplayVehicles();
+            DisplayGarageSpaces();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to remove");
             string? vehicleID = Console.ReadLine();
             if (GetVehicleByID(vehicleID) != null)
