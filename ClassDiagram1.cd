@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="CSharp_Garage_Task.Car">
+  <Class Name="CSharp_Garage_Task.Bus">
     <Position X="3.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Car.cs</FileName>
+      <FileName>Bus.cs</FileName>
+      <NewMemberFileName>Car.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.Garage">
@@ -15,30 +16,35 @@
           <NewMemberFileName>Garage.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
+      <Enum Name="CSharp_Garage_Task.Garage.VehicleColors" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Garage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIACAAAAAAAAAAGAAAAAAAAEAAAgCAgAAAAAAAAA=</HashCode>
       <FileName>Garage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.Helper">
     <Position X="12.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Helper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Program">
     <Position X="12" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQCAgAABAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAABAAAAAI=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.Vehicle">
     <Position X="7" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAABQAAAAAAAAQAAAAgAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAABQAAAAAAAAQAAAAgAACAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>

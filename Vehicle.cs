@@ -23,7 +23,7 @@ namespace CSharp_Garage_Task
 
         public override string ToString()
         {
-            return VehicleType.ToString() + ": " + Name + " with RegisterID " + RegisterID + " of color " + Color.ToString();
+            return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString();
         }
     }
 }

@@ -13,7 +13,8 @@ namespace CSharp_Garage_Task
             Car,
             Motorcycle,
             Boat,
-            Airplane
+            Airplane,
+            Bus
         }
         public enum VehicleColors
         {
@@ -42,7 +43,7 @@ namespace CSharp_Garage_Task
         }
         public void DisplayVehicles()
         {
-            Console.WriteLine("Displaying vehicles");
+            Console.WriteLine("There are " + ParkedVehicles + " vehicles");
             for (int i = 0; i < ParkedVehicles; i++) {
                 Console.WriteLine(vehicles[i].ToString());
             }
@@ -109,6 +110,9 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Airplane:
                     newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType);
+                    break;
+                case VehicleTypes.Bus:
+                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
