@@ -77,6 +77,11 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
+            if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
+            {
+                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
+                return;
+            }
             VehicleTypes vehicleType = (VehicleTypes)vehicleTypeInt;
             Console.WriteLine("Creating " + vehicleType);
 
@@ -93,6 +98,11 @@ namespace CSharp_Garage_Task
             if (!int.TryParse(Console.ReadLine(), out int vehicleColorInt))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
+            }
+            if (!Enum.IsDefined(typeof(VehicleColors), vehicleColorInt))
+            {
+                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
+                return;
             }
             VehicleColors vehicleColor = (VehicleColors)vehicleColorInt;
 
