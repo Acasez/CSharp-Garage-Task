@@ -11,16 +11,19 @@ namespace CSharp_Garage_Task
         public String RegisterID { get; private set; }
         public Garage.VehicleColors Color { get; private set; }
 
-        public Vehicle (string name, string registerID, Garage.VehicleColors color)
+        public Garage.VehicleTypes VehicleType { get; private set; }
+
+        public Vehicle (string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType)
         {
             Name = name;
             RegisterID = registerID;
             Color = color;
+            VehicleType = vehicleType;
         }
 
         public override string ToString()
         {
-            return "Vehicle: " + Name + " with RegisterID " + RegisterID + " of color " + Color.ToString();
+            return VehicleType.ToString() + ": " + Name + " with RegisterID " + RegisterID + " of color " + Color.ToString();
         }
     }
 }

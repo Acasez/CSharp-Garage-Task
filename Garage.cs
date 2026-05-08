@@ -6,11 +6,7 @@ namespace CSharp_Garage_Task
 {
     internal class Garage
     {
-        const string vehicleCreation = "Lets create a vehicle. What type do you want? \n" +
-            "1 = Car \n" +
-            "2 = Motorcycle \n" +
-            "3 = Boat \n" +
-            "4 = Airplane \n";
+        const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
         public enum VehicleTypes
         {
@@ -72,60 +68,47 @@ namespace CSharp_Garage_Task
                 return;
             }
             Console.WriteLine(vehicleCreation);
-            Console.Write("Your choice: ");
-
-            string? input = Console.ReadLine();
-            VehicleTypes vehicleType = VehicleTypes.Car;
-
-            switch (input)
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
-                case "1":
-                    Console.WriteLine("Creating car");
-                    break;
-                case "2":
-                    Console.WriteLine("Creating motorcycle");
-                    vehicleType = VehicleTypes.Motorcycle;
-                    break;
-                case "3":
-                    Console.WriteLine("Creating boat");
-                    vehicleType = VehicleTypes.Boat;
-                    break;
-                case "4":
-                    Console.WriteLine("Creating airplane");
-                    vehicleType = VehicleTypes.Airplane;
-                    break;
-                default:
-                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                    break;
+                Helper.WriteMessage((int)type + ": " + type.ToString());
             }
+            if (!int.TryParse(Console.ReadLine(), out int vehicleTypeInt))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            VehicleTypes vehicleType = (VehicleTypes)vehicleTypeInt;
+            Console.WriteLine("Creating " + vehicleType);
+
             Console.Write("Write vehicle name: ");
             string vehicleName = Console.ReadLine();
             Console.Write("Write register ID");
             string vehicleID = Console.ReadLine();
+
             Helper.WriteMessage(vehicleColorChoice);
             foreach (VehicleColors color in Enum.GetValues<VehicleColors>())
             {
-                Helper.WriteMessage((int)color + " " + color.ToString());
+                Helper.WriteMessage((int)color + ": " + color.ToString());
             }
             if (!int.TryParse(Console.ReadLine(), out int vehicleColorInt))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
             VehicleColors vehicleColor = (VehicleColors)vehicleColorInt;
+
             Vehicle newVehicle = null;
             switch (vehicleType)
             {
                 case VehicleTypes.Car:
-                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor);
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType);
                     break;
                 case VehicleTypes.Motorcycle:
-                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor);
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType);
                     break;
                 case VehicleTypes.Boat:
-                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor);
+                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType);
                     break;
                 case VehicleTypes.Airplane:
-                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor);
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
@@ -134,8 +117,8 @@ namespace CSharp_Garage_Task
             if (newVehicle != null)
             {
                 vehicles[ParkedVehicles] = newVehicle;
+                ParkedVehicles++;
             }
-            ParkedVehicles++;
         }
     }
 }
