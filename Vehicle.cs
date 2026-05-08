@@ -7,12 +7,14 @@ namespace CSharp_Garage_Task
     abstract class Vehicle
     {
         public string Name { get; private set; }
-        public int Wheels { get; private set; } = 4;
-        public String RegisterID { get; private set; }
+        public int Wheels { get; protected set; } = 4;
+        public string RegisterID { get; private set; }
         public Garage.VehicleColors Color { get; private set; }
         public Garage.VehicleTypes VehicleType { get; private set; }
 
         public readonly int parkedNumber;
+
+        public static string pluralName = "Vehicles";
         public Vehicle (string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber)
         {
             Name = name;

@@ -4,9 +4,11 @@ using System.Text;
 
 namespace CSharp_Garage_Task
 {
-    internal class Car(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber)
-        : Vehicle(name, registerID, color, vehicleType, parkedNumber)
+    internal class Car : Vehicle
     {
-
+        public Car(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber) : base(name, registerID, color, vehicleType, parkedNumber)
+        {
+            pluralName = "Cars";
+        }
     }
 }

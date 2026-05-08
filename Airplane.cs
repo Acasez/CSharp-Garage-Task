@@ -4,12 +4,12 @@ using System.Text;
 
 namespace CSharp_Garage_Task
 {
-    internal class Airplane(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber)
-        : Vehicle(name, registerID, color, vehicleType, parkedNumber)
+    internal class Airplane : Vehicle
     {
-        //public override string ToString()
-        //{
-        //    return "Airplane: " + Name + " with RegisterID " + RegisterID + " of color " + Color.ToString();
-        //}
+        public Airplane(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber) : base(name, registerID, color, vehicleType, parkedNumber)
+        {
+            Wheels = 2;
+            pluralName = "Airplanes";
+        }
     }
 }

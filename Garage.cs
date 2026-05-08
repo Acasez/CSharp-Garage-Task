@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static CSharp_Garage_Task.Garage;
 
 namespace CSharp_Garage_Task
 {
@@ -215,6 +216,22 @@ namespace CSharp_Garage_Task
                 {
                     Helper.WriteMessage(vehicles[i].ToString());
                 }
+            }
+        }
+
+        internal void ListVehiclesTypes()
+        {
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+            {
+                int vehiclesOfType = 0;
+                for (int i = 0; i < ParkedVehicles; i++)
+                {
+                    if (vehicles[i].VehicleType == type)
+                    {
+                        vehiclesOfType++;
+                    }
+                }
+                Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s" );
             }
         }
     }
