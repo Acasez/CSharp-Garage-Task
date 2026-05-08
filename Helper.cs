@@ -12,5 +12,17 @@ namespace CSharp_Garage_Task
             Console.WriteLine(errorText);
             Console.ResetColor();
         }
+
+        public static void WriteWarningMessage(string warningText)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine(warningText);
+            Console.ResetColor();
+        }
+
+        public static void WriteMessage(string text)
+        {
+            Console.WriteLine(text);
+        }
     }
 }

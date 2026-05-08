@@ -20,6 +20,7 @@ namespace CSharp_Garage_Task
         }
         Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
+        public int ParkedVehicles { get; private set; }
         public Garage(int size)
         {
             if (size > 0)
@@ -35,13 +36,30 @@ namespace CSharp_Garage_Task
         public void DisplayVehicles()
         {
             Console.WriteLine("Displaying vehicles");
-            for (int i = 0; i < vehicles.Length; i++) {
+            for (int i = 0; i < ParkedVehicles; i++) {
                 Console.WriteLine(vehicles[i].ToString());
+            }
+        }
+
+        public bool CheckForGarageSpace()
+        {
+            if (GarageCapacity > ParkedVehicles)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
         public void AddVehicle()
         {
+            if (!CheckForGarageSpace())
+            {
+                Helper.WriteWarningMessage("Garage Full");
+                return;
+            }
             Console.WriteLine(vehicleCreation);
             Console.Write("Your choice: ");
 
@@ -94,7 +112,11 @@ namespace CSharp_Garage_Task
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
                     break;
             }
-            vehicles.Append(newVehicle);
+            if (newVehicle != null)
+            {
+                vehicles[ParkedVehicles] = newVehicle;
+            }
+            ParkedVehicles++;
         }
     }
 }
