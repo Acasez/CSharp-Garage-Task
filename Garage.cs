@@ -43,9 +43,25 @@ namespace CSharp_Garage_Task
         }
         public void DisplayVehicles()
         {
-            Console.WriteLine("There are " + ParkedVehicles + " vehicles");
+            Helper.WriteMessage("There are " + ParkedVehicles + " vehicles");
             for (int i = 0; i < ParkedVehicles; i++) {
-                Console.WriteLine(vehicles[i].ToString());
+                Helper.WriteMessage(vehicles[i].ToString());
+            }
+        }
+
+        public void DisplayGarageSpaces()
+        {
+            Helper.WriteMessage("There are " + ParkedVehicles + " vehicles and " + vehicles.Length + " spaces.");
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                if (vehicles[i] != null)
+                {
+                    Helper.WriteMessage(vehicles[i].ToString() + "parked at space " + i);
+                }
+                else
+                {
+                    Helper.WriteMessage("No vehicles parked at space " + i);
+                }
             }
         }
 
@@ -73,11 +89,30 @@ namespace CSharp_Garage_Task
             }
         }
 
+        public int? GetFirstEmptySpace()
+        {
+            for (int i = 0; i < vehicles.Length; i++)
+            {
+                if (vehicles[i] == null)
+                {
+                    return i;
+                }
+            }
+            return null;
+        }
+
         public void AddVehicle()
         {
+            
             if (!CheckForGarageSpace())
             {
                 Helper.WriteWarningMessage("Garage Full");
+                return;
+            }
+            int? garageSpace = GetFirstEmptySpace();
+            if (garageSpace == null)
+            {
+                Helper.WriteWarningMessage("No fitting space");
                 return;
             }
 
@@ -157,30 +192,12 @@ namespace CSharp_Garage_Task
             DisplayVehicles();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to remove");
             string? vehicleID = Console.ReadLine();
-            int indexToRemove = -1;
-            for (int i = 0; i < ParkedVehicles; i++)
+            if (GetVehicleByID(vehicleID) != null)
             {
-                if (vehicles[i] != null && vehicles[i].RegisterID == vehicleID)
-                {
-                    indexToRemove = i;
-                    break;
-                }
-            }
-
-            if (indexToRemove != -1)
-            {
-                Helper.WriteMessage("Removing vehicle: " + vehicles[indexToRemove].ToString());
-
-                for (int i = indexToRemove; i < ParkedVehicles - 1; i++)
-                {
-                    vehicles[i] = vehicles[i + 1];
-                }
-                vehicles[ParkedVehicles - 1] = null;
-                ParkedVehicles--;
-            }
-            else
-            {
-                Helper.WriteMessage("Vehicle not found.");
+                Vehicle vehicle = GetVehicleByID(vehicleID);
+                Helper.WriteMessage("Removing vehicle" + vehicle.ToString());
+                vehicles[vehicle.parkedNumber] = null;
+                return;
             }
         }
     }

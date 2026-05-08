@@ -8,7 +8,7 @@ internal class Program
         "Select an option. \n" +
         "0 = Exit \n" +
         "1 = Add vehicle \n" +
-        "2 = List all vehicles \n" +
+        "2 = List garage spaces \n" +
         "3 = Remove vehicle \n";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage?";
 
@@ -57,7 +57,7 @@ internal class Program
                 garage.AddVehicle();
                 break;
             case "2":
-                garage.DisplayVehicles();
+                garage.DisplayGarageSpaces();
                 break;
             case "3":
                 garage.RemoveVehicle();
