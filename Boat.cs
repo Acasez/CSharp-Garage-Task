@@ -6,6 +6,9 @@ namespace CSharp_Garage_Task
 {
     internal class Boat(string name, string registerID, Garage.VehicleColors color) : Vehicle(name, registerID, color)
     {
-
+        public override string ToString()
+        {
+            return "Boat: " + Name + " with RegisterID " + RegisterID + " of color " + Color.ToString();
+        }
     }
 }
