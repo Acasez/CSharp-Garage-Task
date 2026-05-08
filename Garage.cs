@@ -6,7 +6,7 @@ namespace CSharp_Garage_Task
 {
     internal class Garage
     {
-        const string vehicleCreation = "Lets create a vehicle. What type do you want?" +
+        const string vehicleCreation = "Lets create a vehicle. What type do you want? \n" +
             "1 = Car \n" +
             "2 = Motorcycle \n" +
             "3 = Boat \n" +
@@ -97,16 +97,16 @@ namespace CSharp_Garage_Task
             switch (vehicleType)
             {
                 case VehicleTypes.Car:
-                    newVehicle = new Car(vehicleName, vehicleName, vehicleColor);
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor);
                     break;
                 case VehicleTypes.Motorcycle:
-                    newVehicle = new Motorcycle(vehicleName, vehicleName, vehicleColor);
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor);
                     break;
                 case VehicleTypes.Boat:
-                    newVehicle = new Boat(vehicleName, vehicleName, vehicleColor);
+                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor);
                     break;
                 case VehicleTypes.Airplane:
-                    newVehicle = new Airplane(vehicleName, vehicleName, vehicleColor);
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
