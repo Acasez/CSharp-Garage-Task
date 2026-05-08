@@ -49,6 +49,18 @@ namespace CSharp_Garage_Task
             }
         }
 
+        public Vehicle? GetVehicleByID(string ID)
+        {
+            for (int i = 0; i < ParkedVehicles; i++)
+            {
+                if (vehicles[i].RegisterID == ID)
+                {
+                    return vehicles[i];
+                }
+            }
+            return null;
+        }
+
         public bool CheckForGarageSpace()
         {
             if (GarageCapacity > ParkedVehicles)
@@ -68,6 +80,7 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Garage Full");
                 return;
             }
+
             Console.WriteLine(vehicleCreation);
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
@@ -89,6 +102,10 @@ namespace CSharp_Garage_Task
             string vehicleName = Console.ReadLine();
             Console.Write("Write register ID");
             string vehicleID = Console.ReadLine();
+            if (GetVehicleByID(vehicleID) != null) {
+                Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
+                return;
+            }
 
             Helper.WriteMessage(vehicleColorChoice);
             foreach (VehicleColors color in Enum.GetValues<VehicleColors>())
