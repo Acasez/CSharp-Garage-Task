@@ -11,12 +11,23 @@ namespace CSharp_Garage_Task
             "2 = Motorcycle \n" +
             "3 = Boat \n" +
             "4 = Airplane \n";
+        const string vehicleColorChoice = "What color should our vehicle be? \n";
         public enum VehicleTypes
         {
             Car,
             Motorcycle,
             Boat,
             Airplane
+        }
+        public enum VehicleColors
+        {
+            White,
+            Black,
+            Red,
+            Blue,
+            Green,
+            Silver,
+            Yellow
         }
         Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
@@ -91,8 +102,16 @@ namespace CSharp_Garage_Task
             string vehicleName = Console.ReadLine();
             Console.Write("Write register ID");
             string vehicleID = Console.ReadLine();
-            Console.Write("Write vehicle color");
-            string vehicleColor = Console.ReadLine();
+            Helper.WriteMessage(vehicleColorChoice);
+            foreach (VehicleColors color in Enum.GetValues<VehicleColors>())
+            {
+                Helper.WriteMessage((int)color + " " + color.ToString());
+            }
+            if (!int.TryParse(Console.ReadLine(), out int vehicleColorInt))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            VehicleColors vehicleColor = (VehicleColors)vehicleColorInt;
             Vehicle newVehicle = null;
             switch (vehicleType)
             {

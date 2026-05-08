@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp_Garage_Task
 {
-    internal class Airplane(string name, string registerID, string color) : Vehicle(name, registerID, color)
+    internal class Airplane(string name, string registerID, Garage.VehicleColors color) : Vehicle(name, registerID, color)
     {
 
     }

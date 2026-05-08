@@ -9,9 +9,9 @@ namespace CSharp_Garage_Task
         public string Name { get; private set; }
         public int Wheels { get; private set; } = 4;
         public String RegisterID { get; private set; }
-        public string Color { get; private set; }
+        public Garage.VehicleColors Color { get; private set; }
 
-        public Vehicle (string name, string registerID, string color)
+        public Vehicle (string name, string registerID, Garage.VehicleColors color)
         {
             Name = name;
             RegisterID = registerID;
@@ -20,7 +20,7 @@ namespace CSharp_Garage_Task
 
         public override string ToString()
         {
-            return "Vehicle: " + Name + " with RegisterID " + RegisterID + " of color " + Color;
+            return "Vehicle: " + Name + " with RegisterID " + RegisterID + " of color " + Color.ToString();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace CSharp_Garage_Task
 {
     internal class Car : Vehicle
     {
-        public Car(string name, string registerID, string color) : base(name, registerID, color)
+        public Car(string name, string registerID, Garage.VehicleColors color) : base(name, registerID, color)
         {
         }
     }
