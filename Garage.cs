@@ -26,7 +26,7 @@ namespace CSharp_Garage_Task
             Silver,
             Yellow
         }
-        Vehicle[] vehicles;
+        private Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
         public int ParkedVehicles { get; private set; }
         public Garage(int size)
@@ -98,9 +98,9 @@ namespace CSharp_Garage_Task
             VehicleTypes vehicleType = (VehicleTypes)vehicleTypeInt;
             Console.WriteLine("Creating " + vehicleType);
 
-            Console.Write("Write vehicle name: ");
+            Helper.WriteMessage("Write vehicle name: ");
             string vehicleName = Console.ReadLine();
-            Console.Write("Write register ID");
+            Helper.WriteMessage("Write register ID");
             string vehicleID = Console.ReadLine();
             if (GetVehicleByID(vehicleID) != null) {
                 Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
@@ -127,19 +127,19 @@ namespace CSharp_Garage_Task
             switch (vehicleType)
             {
                 case VehicleTypes.Car:
-                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType);
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
                     break;
                 case VehicleTypes.Motorcycle:
-                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType);
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
                     break;
                 case VehicleTypes.Boat:
-                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType);
+                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
                     break;
                 case VehicleTypes.Airplane:
-                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType);
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
                     break;
                 case VehicleTypes.Bus:
-                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType);
+                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
@@ -149,6 +149,38 @@ namespace CSharp_Garage_Task
             {
                 vehicles[ParkedVehicles] = newVehicle;
                 ParkedVehicles++;
+            }
+        }
+
+        internal void RemoveVehicle()
+        {
+            DisplayVehicles();
+            Helper.WriteMessage("Enter the ID of the vehicle you wish to remove");
+            string? vehicleID = Console.ReadLine();
+            int indexToRemove = -1;
+            for (int i = 0; i < ParkedVehicles; i++)
+            {
+                if (vehicles[i] != null && vehicles[i].RegisterID == vehicleID)
+                {
+                    indexToRemove = i;
+                    break;
+                }
+            }
+
+            if (indexToRemove != -1)
+            {
+                Helper.WriteMessage("Removing vehicle: " + vehicles[indexToRemove].ToString());
+
+                for (int i = indexToRemove; i < ParkedVehicles - 1; i++)
+                {
+                    vehicles[i] = vehicles[i + 1];
+                }
+                vehicles[ParkedVehicles - 1] = null;
+                ParkedVehicles--;
+            }
+            else
+            {
+                Helper.WriteMessage("Vehicle not found.");
             }
         }
     }

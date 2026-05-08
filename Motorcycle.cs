@@ -4,7 +4,8 @@ using System.Text;
 
 namespace CSharp_Garage_Task
 {
-    internal class Motorcycle(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType) : Vehicle(name, registerID, color, vehicleType)
+    internal class Motorcycle(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber)
+        : Vehicle(name, registerID, color, vehicleType, parkedNumber)
     {
 
         //public override string ToString()
