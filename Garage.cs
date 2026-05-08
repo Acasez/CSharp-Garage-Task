@@ -56,7 +56,7 @@ namespace CSharp_Garage_Task
             {
                 if (vehicles[i] != null)
                 {
-                    Helper.WriteMessage(vehicles[i].ToString() + "parked at space " + i);
+                    Helper.WriteMessage(vehicles[i].ToString() + " parked at space " + i);
                 }
                 else
                 {
@@ -103,7 +103,6 @@ namespace CSharp_Garage_Task
 
         public void AddVehicle()
         {
-            
             if (!CheckForGarageSpace())
             {
                 Helper.WriteWarningMessage("Garage Full");
@@ -117,20 +116,7 @@ namespace CSharp_Garage_Task
             }
 
             Console.WriteLine(vehicleCreation);
-            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
-            {
-                Helper.WriteMessage((int)type + ": " + type.ToString());
-            }
-            if (!int.TryParse(Console.ReadLine(), out int vehicleTypeInt))
-            {
-                Helper.WriteErrorMessage("Error, not a interger");
-            }
-            if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
-            {
-                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
-                return;
-            }
-            VehicleTypes vehicleType = (VehicleTypes)vehicleTypeInt;
+            VehicleTypes vehicleType = GetVehicleType();
             Console.WriteLine("Creating " + vehicleType);
 
             Helper.WriteMessage("Write vehicle name: ");
@@ -198,6 +184,36 @@ namespace CSharp_Garage_Task
                 Helper.WriteMessage("Removing vehicle" + vehicle.ToString());
                 vehicles[vehicle.parkedNumber] = null;
                 return;
+            }
+        }
+
+        private static VehicleTypes GetVehicleType()
+        {
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+            {
+                Helper.WriteMessage((int)type + ": " + type.ToString());
+            }
+            if (!int.TryParse(Console.ReadLine(), out int vehicleTypeInt))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
+            {
+                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
+            }
+            return (VehicleTypes)vehicleTypeInt;
+        }
+
+        internal void ListAllVehiclesOfType()
+        {
+            VehicleTypes vehicleType = GetVehicleType();
+
+            for (int i = 0; i < ParkedVehicles; i++)
+            {
+                if (vehicles[i].VehicleType == vehicleType)
+                {
+                    Helper.WriteMessage(vehicles[i].ToString());
+                }
             }
         }
     }
