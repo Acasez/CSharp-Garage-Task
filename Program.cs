@@ -12,7 +12,8 @@ internal class Program
         "3 = Remove vehicle \n" +
         "4 = List all vehicles of a type \n" +
         "5 = List vehicles types";
-    const string garageStart = "Lets create a garage. How many spaces do you want in the garage?";
+    const string garageStart = "Lets create a garage. How many spaces do you want in the garage? \n"+
+        "Type -1 for predefined luxury garage.";
 
     public static void Main()
     {
@@ -23,7 +24,15 @@ internal class Program
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
-            Garage ourGarage = new Garage(garageSpaces);
+            Garage ourGarage = null;
+            if (garageSpaces == -1)
+            {
+                ourGarage = PredefinedGarages.LuxuryGarage();
+            }
+            else
+            {
+                ourGarage = new Garage(garageSpaces);
+            }
 
             bool looping = true;
             while (looping)

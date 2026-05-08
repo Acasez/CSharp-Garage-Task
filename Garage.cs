@@ -189,6 +189,12 @@ namespace CSharp_Garage_Task
             }
         }
 
+        internal void AddPredefinedVehicle(Vehicle vehicle, int space)
+        {
+            vehicles[space] = vehicle;
+            ParkedVehicles ++;
+        }
+
         private static VehicleTypes GetVehicleType()
         {
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())

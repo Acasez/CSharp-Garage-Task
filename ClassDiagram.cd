@@ -23,7 +23,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIAEIACQAAAAAAAAAGAAAAAAAAEAAAgKAgAAACAACAE=</HashCode>
+      <HashCode>AIAEIACQAAAAAAAAAGAAAAAAAAEAAAgKCgAAACAACAE=</HashCode>
       <FileName>Garage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -44,29 +44,36 @@
   <Class Name="CSharp_Garage_Task.Vehicle">
     <Position X="7" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAAAEAAAAABQAAAAAAAAQAAAAgAACAAA=</HashCode>
+      <HashCode>gAAAAAAAAAAAAAAEAAAAABQAAAIAAAAQAAAAgAACAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CSharp_Garage_Task.Motorcycle" Collapsed="true">
+  <Class Name="CSharp_Garage_Task.Motorcycle">
     <Position X="2.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CSharp_Garage_Task.Boat" Collapsed="true">
+  <Class Name="CSharp_Garage_Task.Boat">
     <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Boat.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="CSharp_Garage_Task.Airplane" Collapsed="true">
+  <Class Name="CSharp_Garage_Task.Airplane">
     <Position X="8.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Airplane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.PredefinedGarages">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PredefinedGarages.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
