@@ -49,5 +49,28 @@ namespace CSharp_Garage_Task
             hugeGarage.AddPredefinedVehicle(coolerBike, 7);
             return hugeGarage;
         }
+
+        internal static Garage SpacedGarage()
+        {
+            Garage spacedGarage = new Garage(12);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0);
+            spacedGarage.AddPredefinedVehicle(fastCar, 0);
+
+            Vehicle mcBike = new Airplane("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1);
+            spacedGarage.AddPredefinedVehicle(mcBike, 1);
+
+            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3);
+            spacedGarage.AddPredefinedVehicle(fancyElectric, 3);
+
+            Vehicle coolerBike = new Airplane("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 6);
+            spacedGarage.AddPredefinedVehicle(coolerBike, 6);
+
+            Vehicle daPlane = new Airplane("daPlane", "000FLY", VehicleColors.Blue, VehicleTypes.Airplane, 10);
+            spacedGarage.AddPredefinedVehicle(daPlane, 10);
+
+            Vehicle ohSeven = new Airplane("ohSeven", "007BON", VehicleColors.Silver, VehicleTypes.Car, 7);
+            spacedGarage.AddPredefinedVehicle(ohSeven, 7);
+            return spacedGarage;
+        }
     }
 }

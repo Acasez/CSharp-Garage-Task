@@ -209,9 +209,9 @@ namespace CSharp_Garage_Task
         {
             VehicleTypes vehicleType = GetVehicleType();
 
-            for (int i = 0; i < ParkedVehicles; i++)
+            for (int i = 0; i < vehicles.Length; i++)
             {
-                if (vehicles[i].VehicleType == vehicleType)
+                if (vehicles[i] != null && vehicles[i].VehicleType == vehicleType)
                 {
                     Helper.WriteMessage(vehicles[i].ToString());
                 }
@@ -223,9 +223,9 @@ namespace CSharp_Garage_Task
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
                 int vehiclesOfType = 0;
-                for (int i = 0; i < ParkedVehicles; i++)
+                for (int i = 0; i < vehicles.Length; i++)
                 {
-                    if (vehicles[i].VehicleType == type)
+                    if (vehicles[i] != null && vehicles[i].VehicleType == type)
                     {
                         vehiclesOfType++;
                     }

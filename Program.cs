@@ -15,13 +15,14 @@ internal class Program
         "5 = List vehicles types";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage? \n"+
         "Type -1 for predefined luxury garage. \n" +
-        "Type -2 for predefined huge garage. \n";
+        "Type -2 for predefined huge garage. \n" +
+        "Type -3 for predefined spaced garage";
 
     public static void Main()
     {
         try
         {
-            Console.Write(garageStart);
+            Console.WriteLine(garageStart);
             if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
@@ -39,6 +40,9 @@ internal class Program
                     break;
                 case -2:
                     ourGarage = PredefinedGarages.HugeGarage();
+                    break;
+                case -3:
+                    ourGarage = PredefinedGarages.SpacedGarage();
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
