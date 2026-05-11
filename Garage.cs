@@ -174,7 +174,8 @@ namespace CSharp_Garage_Task
             }
             if (newVehicle != null)
             {
-                vehicles[ParkedVehicles] = newVehicle;
+                Helper.WriteMessage("Added vehicle " + newVehicle.ToString() + " to garage space " + garageSpace);
+                vehicles[(int)garageSpace] = newVehicle;
                 ParkedVehicles++;
             }
         }
@@ -212,7 +213,6 @@ namespace CSharp_Garage_Task
                 }
             }
         }
-        
 
         internal void ListAllVehiclesFilterable()
         {
@@ -290,19 +290,19 @@ namespace CSharp_Garage_Task
         {
             if (typeFilter == null && colorFilter == null && wheelCountFilter == null)
             {
-                Helper.WriteMessage("No filters currently", ConsoleColor.Blue);
+                Helper.WriteMessage("No filters currently", ConsoleColor.Green);
             }
             if (typeFilter != null)
             {
-                Helper.WriteMessage("Type filter: " + typeFilter, ConsoleColor.Blue);
+                Helper.WriteMessage("Type filter: " + typeFilter, ConsoleColor.Green);
             }
             if (colorFilter != null)
             {
-                Helper.WriteMessage("Color filter: " + colorFilter, ConsoleColor.Blue);
+                Helper.WriteMessage("Color filter: " + colorFilter, ConsoleColor.Green);
             }
             if (wheelCountFilter != null)
             {
-                Helper.WriteMessage("Wheel count filter: " + wheelCountFilter, ConsoleColor.Blue);
+                Helper.WriteMessage("Wheel count filter: " + wheelCountFilter, ConsoleColor.Green);
             }
         }
 
