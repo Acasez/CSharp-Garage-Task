@@ -9,10 +9,10 @@ namespace CSharp_Garage_Task
     {
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
-        const string vehicleFilter = "What should we filter for? \n"
-            + "1 - Vehicle Type \n"
-            + "2 - Vehicle Color \n"
-            + "3 - Wheel Count \n";
+        const string vehicleFilter = "What should we filter for? \n";
+            //+ "1 - Vehicle Type \n"
+            //+ "2 - Vehicle Color \n"
+            //+ "3 - Wheel Count \n";
         public enum VehicleTypes
         {
             Car,
@@ -30,6 +30,13 @@ namespace CSharp_Garage_Task
             Green,
             Silver,
             Yellow
+        }
+
+        public enum FilterOptions
+        {
+            Type,
+            Color,
+            Wheels
         }
         private Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
@@ -192,23 +199,6 @@ namespace CSharp_Garage_Task
             ParkedVehicles ++;
         }
 
-        private static VehicleTypes GetVehicleType()
-        {
-            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
-            {
-                Helper.WriteMessage((int)type + ": " + type.ToString());
-            }
-            if (!int.TryParse(Console.ReadLine(), out int vehicleTypeInt))
-            {
-                Helper.WriteErrorMessage("Error, not a interger");
-            }
-            if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
-            {
-                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
-            }
-            return (VehicleTypes)vehicleTypeInt;
-        }
-
         internal void ListAllVehiclesOfType()
         {
             VehicleTypes vehicleType = GetVehicleType();
@@ -232,8 +222,81 @@ namespace CSharp_Garage_Task
                     Helper.WriteMessage(vehicles[i].ToString());
                 }
             }
+
             Helper.WriteMessage(vehicleFilter);
+            FilterOptions filter = GetFilterOption();
+            Helper.WriteMessage("Setup " + filter);
+            switch (filter)
+            {
+                case FilterOptions.Type:
+                    VehicleTypes type = GetVehicleType();
+                    break;
+                case FilterOptions.Color:
+                    VehicleColors color = GetVehicleColor();
+                    break;
+                case FilterOptions.Wheels:
+                    if (!int.TryParse(Console.ReadLine(), out int wheelCount))
+                    {
+                        Helper.WriteErrorMessage("Error, not a interger");
+                    }
+                    break;
+                default:
+                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                    break;
+            }
         }
+        #region Filters
+        private static VehicleColors GetVehicleColor()
+        {
+            foreach (VehicleColors type in Enum.GetValues<VehicleColors>())
+            {
+                Helper.WriteMessage((int)type + ": Color " + type.ToString());
+            }
+            if (!int.TryParse(Console.ReadLine(), out int vehicleColorInt))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            if (!Enum.IsDefined(typeof(VehicleColors), vehicleColorInt))
+            {
+                Helper.WriteErrorMessage("Invalid input, select a valid vehicle color.");
+            }
+            return (VehicleColors)vehicleColorInt;
+        }
+
+        private static VehicleTypes GetVehicleType()
+        {
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+            {
+                Helper.WriteMessage((int)type + ": " + type.ToString());
+            }
+            if (!int.TryParse(Console.ReadLine(), out int vehicleTypeInt))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
+            {
+                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
+            }
+            return (VehicleTypes)vehicleTypeInt;
+        }
+
+        private static FilterOptions GetFilterOption()
+        {
+            foreach (FilterOptions type in Enum.GetValues<FilterOptions>())
+            {
+                Helper.WriteMessage((int)type + ": Vehicle " + type.ToString());
+            }
+            if (!int.TryParse(Console.ReadLine(), out int vehicleFilterInt))
+            {
+                Helper.WriteErrorMessage("Error, not a interger");
+            }
+            if (!Enum.IsDefined(typeof(FilterOptions), vehicleFilterInt))
+            {
+                Helper.WriteErrorMessage("Invalid input, select a valid vehicle filter.");
+            }
+            return (FilterOptions)vehicleFilterInt;
+        }
+        #endregion
 
         internal void ListVehiclesTypes()
         {
