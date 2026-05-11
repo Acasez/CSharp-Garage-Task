@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using static CSharp_Garage_Task.Garage;
 
-namespace CSharp_Garage_Task
+namespace CSharp_Garage_Task.VehicleClasses
 {
     internal class Car : Vehicle
     {

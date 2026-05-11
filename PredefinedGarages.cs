@@ -1,8 +1,9 @@
-﻿using System;
+﻿using CSharp_Garage_Task.VehicleClasses;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using static CSharp_Garage_Task.Garage;
-using static CSharp_Garage_Task.Vehicle;
+using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
 {
