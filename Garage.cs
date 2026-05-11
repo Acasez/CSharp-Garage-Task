@@ -10,9 +10,6 @@ namespace CSharp_Garage_Task
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
         const string vehicleFilter = "What should we filter for? \n";
-            //+ "1 - Vehicle Type \n"
-            //+ "2 - Vehicle Color \n"
-            //+ "3 - Wheel Count \n";
         public enum VehicleTypes
         {
             Car,
@@ -34,10 +31,10 @@ namespace CSharp_Garage_Task
 
         public enum FilterOptions
         {
+            Exit,
             Type,
             Color,
-            Wheels,
-            Exit
+            Wheels
         }
         private Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
@@ -181,7 +178,7 @@ namespace CSharp_Garage_Task
                     }
                     else if (sailsInt == 2)
                     {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, true);
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, false);
                     }
                     else
                     {
@@ -298,6 +295,10 @@ namespace CSharp_Garage_Task
                 Helper.WriteMessage("Setup " + filter);
                 switch (filter)
                 {
+                    case FilterOptions.Exit:
+                        Helper.WriteMessage("Exiting view");
+                        looping = false;
+                        break;
                     case FilterOptions.Type:
                         typeFilter = GetVehicleType();
                         break;
@@ -310,10 +311,6 @@ namespace CSharp_Garage_Task
                             Helper.WriteErrorMessage("Error, not a interger");
                         }
                         wheelCountFilter = wheelCount;
-                        break;
-                    case FilterOptions.Exit:
-                        Helper.WriteMessage("Exiting view");
-                        looping = false;
                         break;
                     default:
                         Helper.WriteErrorMessage("Invalid input, select a valid one.");

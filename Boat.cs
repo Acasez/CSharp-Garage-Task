@@ -16,7 +16,7 @@ namespace CSharp_Garage_Task
 
         public override string ToString()
         {
-            return base.ToString() + " with " + (Sail ? " sails " : " no sail ");
+            return base.ToString() + " with" + (Sail ? " sails" : " no sails");
         }
     }
 }
