@@ -22,12 +22,13 @@ internal class Program
     {
         try
         {
+            bool looping = true;
             Helper.WriteMessage(garageStart);
             if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
-            Garage ourGarage = null;
+            Garage? ourGarage = null;
 
             if (garageSpaces > 0)
             {
@@ -48,11 +49,11 @@ internal class Program
                         break;
                     default:
                         Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                        looping = false;
                         break;
                 }
             }
 
-            bool looping = true;
             while (looping)
             {
                 looping = LoopDisplay(looping, ourGarage);
