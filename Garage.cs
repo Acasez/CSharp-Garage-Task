@@ -216,7 +216,7 @@ namespace CSharp_Garage_Task
         internal void FindVehicleById()
         {
             DisplayGarageSpaces();
-            Helper.WriteMessage("Enter the ID of the vehicle you wish to remove");
+            Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
             string? vehicleID = Console.ReadLine();
             if (GetVehicleByID(vehicleID) != null)
             {
