@@ -139,20 +139,11 @@ namespace CSharp_Garage_Task
             }
 
             Helper.WriteMessage(vehicleColorChoice);
-            foreach (VehicleColors color in Enum.GetValues<VehicleColors>())
+            VehicleColors vehicleColor = GetVehicleColor();
+            if (!Enum.IsDefined(vehicleColor))
             {
-                Helper.WriteMessage((int)color + ": " + color.ToString());
-            }
-            if (!int.TryParse(Console.ReadLine(), out int vehicleColorInt))
-            {
-                Helper.WriteErrorMessage("Error, not a interger");
-            }
-            if (!Enum.IsDefined(typeof(VehicleColors), vehicleColorInt))
-            {
-                Helper.WriteErrorMessage("Invalid input, select a valid vehicle type.");
                 return;
             }
-            VehicleColors vehicleColor = (VehicleColors)vehicleColorInt;
 
             Vehicle newVehicle = null;
             switch (vehicleType)
