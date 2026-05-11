@@ -36,7 +36,8 @@ namespace CSharp_Garage_Task
         {
             Type,
             Color,
-            Wheels
+            Wheels,
+            Exit
         }
         private Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
@@ -215,36 +216,71 @@ namespace CSharp_Garage_Task
 
         internal void ListAllVehicles()
         {
-            for (int i = 0; i < vehicles.Length; i++)
+            VehicleTypes? typeFilter = null;
+            VehicleColors? colorFilter = null;
+            int? wheelCountFilter = null;
+
+            bool looping = true;
+            while (looping)
             {
-                if (vehicles[i] != null)
+                for (int i = 0; i < vehicles.Length; i++)
                 {
-                    Helper.WriteMessage(vehicles[i].ToString());
+                    if (vehicles[i] != null)
+                    {
+                        if (typeFilter != null)
+                        {
+                            if (vehicles[i].VehicleType != typeFilter)
+                            {
+                                continue;
+                            }
+                        }
+                        if (colorFilter != null)
+                        {
+                            if (vehicles[i].Color != colorFilter)
+                            {
+                                continue;
+                            }
+                        }
+                        if (wheelCountFilter != null)
+                        {
+                            if (vehicles[i].Wheels != wheelCountFilter)
+                            {
+                                continue;
+                            }
+                        }
+                        Helper.WriteMessage(vehicles[i].ToString());
+                    }
+                }
+
+                Helper.WriteMessage(vehicleFilter);
+                FilterOptions filter = GetFilterOption();
+                Helper.WriteMessage("Setup " + filter);
+                switch (filter)
+                {
+                    case FilterOptions.Type:
+                        typeFilter = GetVehicleType();
+                        break;
+                    case FilterOptions.Color:
+                        colorFilter = GetVehicleColor();
+                        break;
+                    case FilterOptions.Wheels:
+                        if (!int.TryParse(Console.ReadLine(), out int wheelCount))
+                        {
+                            Helper.WriteErrorMessage("Error, not a interger");
+                        }
+                        wheelCountFilter = wheelCount;
+                        break;
+                    case FilterOptions.Exit:
+                        Helper.WriteMessage("Exiting view");
+                        looping = false;
+                        break;
+                    default:
+                        Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                        break;
                 }
             }
-
-            Helper.WriteMessage(vehicleFilter);
-            FilterOptions filter = GetFilterOption();
-            Helper.WriteMessage("Setup " + filter);
-            switch (filter)
-            {
-                case FilterOptions.Type:
-                    VehicleTypes type = GetVehicleType();
-                    break;
-                case FilterOptions.Color:
-                    VehicleColors color = GetVehicleColor();
-                    break;
-                case FilterOptions.Wheels:
-                    if (!int.TryParse(Console.ReadLine(), out int wheelCount))
-                    {
-                        Helper.WriteErrorMessage("Error, not a interger");
-                    }
-                    break;
-                default:
-                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                    break;
-            }
         }
+
         #region Filters
         private static VehicleColors GetVehicleColor()
         {
