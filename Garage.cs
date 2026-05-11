@@ -164,16 +164,45 @@ namespace CSharp_Garage_Task
                     newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, carBrand);
                     break;
                 case VehicleTypes.Motorcycle:
-                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
+                    Helper.WriteMessage("What's the top speed");
+                    if (!int.TryParse(Console.ReadLine(), out int topSpeed))
+                    {
+                        Helper.WriteErrorMessage("Invalid input");
+                    }
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, topSpeed);
                     break;
                 case VehicleTypes.Boat:
-                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
+                    Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
+                    string? sailInput = Console.ReadLine();
+                    int.TryParse(sailInput, out int sailsInt);
+                    if (sailsInt == 1)
+                    {
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, true);
+                    }
+                    else if (sailsInt == 2)
+                    {
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, true);
+                    }
+                    else
+                    {
+                        Helper.WriteErrorMessage("Invalid input");
+                    }
+                    
                     break;
                 case VehicleTypes.Airplane:
-                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
+                    Helper.WriteMessage("How many flight hours do the plane have?");
+                    if (!int.TryParse(Console.ReadLine(), out int flightHours)) {
+                        Helper.WriteErrorMessage("Invalid input");
+                    }
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, flightHours);
                     break;
                 case VehicleTypes.Bus:
-                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
+                    Helper.WriteMessage("How many people does the bus fit?");
+                    if (!int.TryParse(Console.ReadLine(), out int capacity))
+                    {
+                        Helper.WriteErrorMessage("Invalid input");
+                    }
+                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, capacity);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");

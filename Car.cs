@@ -28,7 +28,7 @@ namespace CSharp_Garage_Task
 
         public override string ToString()
         {
-            return base.ToString() + " car brand " + Brand;
+            return base.ToString() + " of car brand " + Brand;
         }
 
         internal static CarBrand GetCarBrand()
