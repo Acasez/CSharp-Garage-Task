@@ -33,20 +33,23 @@ internal class Program
             {
                 ourGarage = new Garage(garageSpaces);
             }
-            switch (garageSpaces)
+            else
             {
-                case -1:
-                    ourGarage = PredefinedGarages.LuxuryGarage();
-                    break;
-                case -2:
-                    ourGarage = PredefinedGarages.HugeGarage();
-                    break;
-                case -3:
-                    ourGarage = PredefinedGarages.SpacedGarage();
-                    break;
-                default:
-                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                    break;
+                switch (garageSpaces)
+                {
+                    case -1:
+                        ourGarage = PredefinedGarages.LuxuryGarage();
+                        break;
+                    case -2:
+                        ourGarage = PredefinedGarages.HugeGarage();
+                        break;
+                    case -3:
+                        ourGarage = PredefinedGarages.SpacedGarage();
+                        break;
+                    default:
+                        Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                        break;
+                }
             }
 
             bool looping = true;
