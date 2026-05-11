@@ -11,7 +11,6 @@ namespace CSharp_Garage_Task
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
         const string vehicleFilter = "What should we filter for? \n";
-        
 
         public enum FilterOptions
         {
@@ -145,6 +144,7 @@ namespace CSharp_Garage_Task
             switch (vehicleType)
             {
                 case VehicleTypes.Car:
+                    Helper.WriteMessage("What's the car brand?");
                     Car.CarBrand carBrand = Car.GetCarBrand();
                     newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, carBrand);
                     break;
