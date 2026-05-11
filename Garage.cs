@@ -130,9 +130,20 @@ namespace CSharp_Garage_Task
             Helper.WriteMessage("Creating " + vehicleType); //If invalid type, return here
 
             Helper.WriteMessage("Write vehicle name: ");
-            string vehicleName = Console.ReadLine();
+            string? vehicleName = Console.ReadLine();
+            if (vehicleName == null)
+            {
+                Helper.WriteWarningMessage("Cam't have null name");
+                return;
+            }
+
             Helper.WriteMessage("Write register ID");
-            string vehicleID = Console.ReadLine();
+            string? vehicleID = Console.ReadLine();
+            if (vehicleID == null)
+            {
+                Helper.WriteWarningMessage("Cam't have null ID");
+                return;
+            }
             if (GetVehicleByID(vehicleID) != null) {
                 Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
                 return;
