@@ -3,7 +3,7 @@
   <Class Name="CSharp_Garage_Task.Bus">
     <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bus.cs</FileName>
       <NewMemberFileName>Car.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -31,7 +31,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIAEIAGQAAQAAAAAACQAAAAIAAEAAAgKCgAAgCAACAE=</HashCode>
+      <HashCode>AIAAIAGQAAQAAAAAACwAAAAIAAEAAAgKCgAAgCAACAE=</HashCode>
       <FileName>Garage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -59,21 +59,21 @@
   <Class Name="CSharp_Garage_Task.Motorcycle">
     <Position X="4.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.Boat">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Boat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.Airplane">
     <Position X="8.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>Airplane.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -86,6 +86,9 @@
   </Class>
   <Class Name="CSharp_Garage_Task.Car">
     <Position X="4.25" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Enum Name="CSharp_Garage_Task.Car.CarBrand" Collapsed="true">
         <TypeIdentifier>

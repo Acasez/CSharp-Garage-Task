@@ -36,7 +36,7 @@ namespace CSharp_Garage_Task
             Color,
             Wheels
         }
-        private Vehicle[] vehicles;
+        private readonly Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
         public int ParkedVehicles { get; private set; }
         public Garage(int size)
@@ -68,8 +68,12 @@ namespace CSharp_Garage_Task
             }
         }
 
-        public Vehicle? GetVehicleByID(string ID)
+        public Vehicle? GetVehicleByID(string? ID)
         {
+            if (ID == null)
+            {
+                return null;
+            }
             for (int i = 0; i < vehicles.Length; i++)
             {
                 if (vehicles[i] != null && vehicles[i].RegisterID.ToLower() == ID.ToLower())
@@ -124,7 +128,7 @@ namespace CSharp_Garage_Task
             {
                 return;
             }
-            Helper.WriteMessage("Creating " + vehicleType); //If invalid type, return here
+            Helper.WriteMessage("Creating " + vehicleType);
 
             Helper.WriteMessage("Write vehicle name: ");
             string? vehicleName = Console.ReadLine();
@@ -153,10 +157,10 @@ namespace CSharp_Garage_Task
                 return;
             }
 
-            Vehicle newVehicle = null;
+            Vehicle? newVehicle = null;
             switch (vehicleType)
             {
-                case VehicleTypes.Car: //TODO, custom properties
+                case VehicleTypes.Car:
                     Car.CarBrand carBrand = Car.GetCarBrand();
                     newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, carBrand);
                     break;
@@ -218,9 +222,9 @@ namespace CSharp_Garage_Task
             DisplayGarageSpaces();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
             string? vehicleID = Console.ReadLine();
-            if (GetVehicleByID(vehicleID) != null)
+            Vehicle? vehicle = GetVehicleByID(vehicleID);
+            if (vehicle != null)
             {
-                Vehicle vehicle = GetVehicleByID(vehicleID);
                 Helper.WriteMessage("Found vehicle " + vehicle.ToString());
                 Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
                 string ? yesNoInput = Console.ReadLine();
@@ -263,6 +267,21 @@ namespace CSharp_Garage_Task
                 {
                     Helper.WriteMessage(vehicles[i].ToString());
                 }
+            }
+        }
+        internal void ListVehiclesTypes()
+        {
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+            {
+                int vehiclesOfType = 0;
+                for (int i = 0; i < vehicles.Length; i++)
+                {
+                    if (vehicles[i] != null && vehicles[i].VehicleType == type)
+                    {
+                        vehiclesOfType++;
+                    }
+                }
+                Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s");
             }
         }
 
@@ -410,21 +429,5 @@ namespace CSharp_Garage_Task
             return (FilterOptions)vehicleFilterInt;
         }
         #endregion
-
-        internal void ListVehiclesTypes()
-        {
-            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
-            {
-                int vehiclesOfType = 0;
-                for (int i = 0; i < vehicles.Length; i++)
-                {
-                    if (vehicles[i] != null && vehicles[i].VehicleType == type)
-                    {
-                        vehiclesOfType++;
-                    }
-                }
-                Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s" );
-            }
-        }
     }
 }
