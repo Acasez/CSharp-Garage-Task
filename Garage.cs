@@ -72,7 +72,7 @@ namespace CSharp_Garage_Task
         {
             for (int i = 0; i < vehicles.Length; i++)
             {
-                if (vehicles[i] != null && vehicles[i].RegisterID == ID)
+                if (vehicles[i] != null && vehicles[i].RegisterID.ToLower() == ID.ToLower())
                 {
                     return vehicles[i];
                 }
@@ -213,7 +213,7 @@ namespace CSharp_Garage_Task
             }
         }
 
-        internal void RemoveVehicle()
+        internal void FindVehicleById()
         {
             DisplayGarageSpaces();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to remove");
@@ -221,9 +221,24 @@ namespace CSharp_Garage_Task
             if (GetVehicleByID(vehicleID) != null)
             {
                 Vehicle vehicle = GetVehicleByID(vehicleID);
-                Helper.WriteMessage("Removing vehicle" + vehicle.ToString());
-                vehicles[vehicle.parkedNumber] = null;
-                ParkedVehicles --;
+                Helper.WriteMessage("Found vehicle " + vehicle.ToString());
+                Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
+                string ? yesNoInput = Console.ReadLine();
+                int.TryParse(yesNoInput, out int yesNoInt);
+                if (yesNoInt == 1)
+                {
+                    Helper.WriteMessage("Removed vehicle" + vehicle.ToString(), ConsoleColor.Yellow);
+                    vehicles[vehicle.parkedNumber] = null;
+                    ParkedVehicles--;
+                }
+                else if (yesNoInt == 2)
+                {
+                    Helper.WriteMessage("Not removing vehicle");
+                }
+                else
+                {
+                    Helper.WriteErrorMessage("Invalid input");
+                }
                 return;
             }
             else

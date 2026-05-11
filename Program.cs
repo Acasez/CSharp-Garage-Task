@@ -9,7 +9,7 @@ internal class Program
         "Select an option. \n" +
         "0 = Exit \n" +
         "1 = Add vehicle \n" +
-        "2 = Remove vehicle \n" +
+        "2 = Find/Remove vehicle \n" +
         "3 = List garage spaces \n" +
         "4 = List vehicles types \n" +
         "5 = List all vehicles (filterable)";
@@ -86,7 +86,7 @@ internal class Program
                 garage.AddVehicle();
                 break;
             case "2":
-                garage.RemoveVehicle();
+                garage.FindVehicleById();
                 break;
             case "3":
                 garage.DisplayGarageSpaces();
