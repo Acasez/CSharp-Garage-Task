@@ -20,9 +20,15 @@ namespace CSharp_Garage_Task
             Console.ResetColor();
         }
 
+        public static void WriteMessage(string text, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
         public static void WriteMessage(string text)
         {
-            Console.WriteLine(text);
+            WriteMessage(text, ConsoleColor.White);
         }
     }
 }

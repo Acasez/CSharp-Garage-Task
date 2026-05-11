@@ -9,11 +9,10 @@ internal class Program
         "Select an option. \n" +
         "0 = Exit \n" +
         "1 = Add vehicle \n" +
-        "2 = List garage spaces \n" +
-        "3 = Remove vehicle \n" +
-        "4 = List all vehicles of a type \n" +
-        "5 = List vehicles types \n" +
-        "6 = List all vehicles (filterable)";
+        "2 = Remove vehicle \n" +
+        "3 = List garage spaces \n" +
+        "4 = List vehicles types \n" +
+        "5 = List all vehicles (filterable)";
     const string garageStart = "Lets create a garage. How many spaces do you want in the garage? \n"+
         "Type -1 for predefined luxury garage. \n" +
         "Type -2 for predefined huge garage. \n" +
@@ -23,7 +22,7 @@ internal class Program
     {
         try
         {
-            Console.WriteLine(garageStart);
+            Helper.WriteMessage(garageStart);
             if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
@@ -69,7 +68,7 @@ internal class Program
 
     public static bool LoopDisplay(bool looping, Garage garage)
     {
-        Console.WriteLine(garageMenu);
+        Helper.WriteMessage(garageMenu);
         Console.Write("Your choice: ");
 
         string? input = Console.ReadLine();
@@ -78,25 +77,22 @@ internal class Program
         {
             case "0":
                 looping = false;
-                Console.WriteLine("Leaving the garage");
+                Helper.WriteMessage("Leaving the garage");
                 break;
             case "1":
                 garage.AddVehicle();
                 break;
             case "2":
-                garage.DisplayGarageSpaces();
-                break;
-            case "3":
                 garage.RemoveVehicle();
                 break;
-            case "4":
-                garage.ListAllVehiclesOfType();
+            case "3":
+                garage.DisplayGarageSpaces();
                 break;
-            case "5":
+            case "4":
                 garage.ListVehiclesTypes();
                 break;
-            case "6":
-                garage.ListAllVehicles();
+            case "5":
+                garage.ListAllVehiclesFilterable();
                 break;
             default:
                 Helper.WriteErrorMessage("Invalid input, select a valid one.");

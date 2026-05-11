@@ -214,16 +214,15 @@ namespace CSharp_Garage_Task
         }
         
 
-        internal void ListAllVehicles()
+        internal void ListAllVehiclesFilterable()
         {
             VehicleTypes? typeFilter = null;
             VehicleColors? colorFilter = null;
             int? wheelCountFilter = null;
-            int fittingVehicles = 0;
             bool looping = true;
             while (looping)
             {
-                fittingVehicles = 0;
+                int fittingVehicles = 0;
                 DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
                 for (int i = 0; i < vehicles.Length; i++)
                 {
@@ -291,19 +290,19 @@ namespace CSharp_Garage_Task
         {
             if (typeFilter == null && colorFilter == null && wheelCountFilter == null)
             {
-                Helper.WriteMessage("No filters currently");
+                Helper.WriteMessage("No filters currently", ConsoleColor.Blue);
             }
             if (typeFilter != null)
             {
-                Helper.WriteMessage("Type filter: " + typeFilter);
+                Helper.WriteMessage("Type filter: " + typeFilter, ConsoleColor.Blue);
             }
             if (colorFilter != null)
             {
-                Helper.WriteMessage("Color filter: " + colorFilter);
+                Helper.WriteMessage("Color filter: " + colorFilter, ConsoleColor.Blue);
             }
             if (wheelCountFilter != null)
             {
-                Helper.WriteMessage("Wheel count filter: " + wheelCountFilter);
+                Helper.WriteMessage("Wheel count filter: " + wheelCountFilter, ConsoleColor.Blue);
             }
         }
 
