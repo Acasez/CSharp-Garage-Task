@@ -226,6 +226,10 @@ namespace CSharp_Garage_Task
                 ParkedVehicles --;
                 return;
             }
+            else
+            {
+                Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
+            }
         }
 
         internal void AddPredefinedVehicle(Vehicle vehicle, int space)

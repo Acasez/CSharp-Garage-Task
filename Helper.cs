@@ -15,7 +15,7 @@ namespace CSharp_Garage_Task
 
         public static void WriteWarningMessage(string warningText)
         {
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(warningText);
             Console.ResetColor();
         }
