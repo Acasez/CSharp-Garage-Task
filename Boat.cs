@@ -7,7 +7,7 @@ namespace CSharp_Garage_Task
     internal class Boat : Vehicle
     {
         public bool Sail { get; private set; }
-        public Boat(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber, bool sail) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Boat(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, bool sail) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             Wheels = 0;
             pluralName = "Boats";

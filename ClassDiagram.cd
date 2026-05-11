@@ -14,16 +14,6 @@
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="CSharp_Garage_Task.Garage.VehicleTypes" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Garage.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="CSharp_Garage_Task.Garage.VehicleColors" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Garage.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
       <Enum Name="CSharp_Garage_Task.Garage.FilterOptions" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Garage.cs</NewMemberFileName>
@@ -51,6 +41,18 @@
   </Class>
   <Class Name="CSharp_Garage_Task.Vehicle">
     <Position X="6.5" Y="4.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="CSharp_Garage_Task.Vehicle.VehicleTypes" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="CSharp_Garage_Task.Vehicle.VehicleColors" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Vehicle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEgAAAABQAAAIAAAAQAAAAgAACAAA=</HashCode>
       <FileName>Vehicle.cs</FileName>

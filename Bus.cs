@@ -7,7 +7,7 @@ namespace CSharp_Garage_Task
     internal class Bus : Vehicle
     {
         public int Capacity { get; private set; }
-        public Bus(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber, int capacity) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Bus(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, int capacity) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             pluralName = "Busses";
             Capacity = capacity;

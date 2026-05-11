@@ -20,7 +20,7 @@ namespace CSharp_Garage_Task
             Renualt
         }
         public CarBrand Brand { get; private set; }
-        public Car(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber, CarBrand brand) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Car(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, CarBrand brand) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             pluralName = "Cars";
             Brand = brand;

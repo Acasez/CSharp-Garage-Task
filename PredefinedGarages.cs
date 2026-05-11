@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using static CSharp_Garage_Task.Garage;
+using static CSharp_Garage_Task.Vehicle;
 
 namespace CSharp_Garage_Task
 {

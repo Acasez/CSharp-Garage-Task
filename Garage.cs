@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using static CSharp_Garage_Task.Garage;
+using static CSharp_Garage_Task.Vehicle;
 
 namespace CSharp_Garage_Task
 {
@@ -10,24 +10,7 @@ namespace CSharp_Garage_Task
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
         const string vehicleFilter = "What should we filter for? \n";
-        public enum VehicleTypes
-        {
-            Car,
-            Motorcycle,
-            Boat,
-            Airplane,
-            Bus
-        }
-        public enum VehicleColors
-        {
-            White,
-            Black,
-            Red,
-            Blue,
-            Green,
-            Silver,
-            Yellow
-        }
+        
 
         public enum FilterOptions
         {
