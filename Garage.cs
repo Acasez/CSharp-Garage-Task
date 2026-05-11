@@ -227,7 +227,7 @@ namespace CSharp_Garage_Task
                 int.TryParse(yesNoInput, out int yesNoInt);
                 if (yesNoInt == 1)
                 {
-                    Helper.WriteMessage("Removed vehicle" + vehicle.ToString(), ConsoleColor.Yellow);
+                    Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
                     vehicles[vehicle.parkedNumber] = null;
                     ParkedVehicles--;
                 }
