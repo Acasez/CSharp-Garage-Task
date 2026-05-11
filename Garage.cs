@@ -123,7 +123,11 @@ namespace CSharp_Garage_Task
 
             Helper.WriteMessage(vehicleCreation);
             VehicleTypes vehicleType = GetVehicleType();
-            Helper.WriteMessage("Creating " + vehicleType);
+            if (!Enum.IsDefined(vehicleType))
+            {
+                return;
+            }
+            Helper.WriteMessage("Creating " + vehicleType); //If invalid type, return here
 
             Helper.WriteMessage("Write vehicle name: ");
             string vehicleName = Console.ReadLine();
@@ -153,7 +157,7 @@ namespace CSharp_Garage_Task
             Vehicle newVehicle = null;
             switch (vehicleType)
             {
-                case VehicleTypes.Car:
+                case VehicleTypes.Car: //TODO, custom properties
                     newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
                     break;
                 case VehicleTypes.Motorcycle:
