@@ -9,8 +9,8 @@ namespace CSharp_Garage_Task
     {
         internal static Garage LuxuryGarage()
         {
-            Garage luxuryGarage = new Garage(5);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0);
+            Garage luxuryGarage = new(5);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             luxuryGarage.AddPredefinedVehicle(fastCar, 0);
 
             Vehicle coolPlane = new Airplane("Zoom", "87", VehicleColors.Silver, VehicleTypes.Airplane, 1);
@@ -23,26 +23,26 @@ namespace CSharp_Garage_Task
 
         internal static Garage HugeGarage()
         {
-            Garage hugeGarage = new Garage(25);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0);
+            Garage hugeGarage = new (25);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             hugeGarage.AddPredefinedVehicle(fastCar, 0);
 
             Vehicle mcBike = new Airplane("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1);
             hugeGarage.AddPredefinedVehicle(mcBike, 1);
 
-            Vehicle yesINeedASUV = new Car("yesINeedASUV", "221SUV", VehicleColors.White, VehicleTypes.Car, 2);
+            Vehicle yesINeedASUV = new Car("yesINeedASUV", "221SUV", VehicleColors.White, VehicleTypes.Car, 2, Car.CarBrand.Ford);
             hugeGarage.AddPredefinedVehicle(yesINeedASUV, 2);
 
-            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3);
+            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3, Car.CarBrand.Renualt);
             hugeGarage.AddPredefinedVehicle(fancyElectric, 3);
 
-            Vehicle rustyButWorking = new Car("rustyButWorking", "822YER", VehicleColors.Green, VehicleTypes.Car, 4);
+            Vehicle rustyButWorking = new Car("rustyButWorking", "822YER", VehicleColors.Green, VehicleTypes.Car, 4, Car.CarBrand.Toyota);
             hugeGarage.AddPredefinedVehicle(rustyButWorking, 4);
 
-            Vehicle schoolBus = new Car("schoolBus", "123BUS", VehicleColors.Yellow, VehicleTypes.Bus, 5);
+            Vehicle schoolBus = new Bus("schoolBus", "123BUS", VehicleColors.Yellow, VehicleTypes.Bus, 5);
             hugeGarage.AddPredefinedVehicle(schoolBus, 5);
 
-            Vehicle ordinaryBus = new Car("ordinaryBus", "321BUS", VehicleColors.Red, VehicleTypes.Bus, 6);
+            Vehicle ordinaryBus = new Bus("ordinaryBus", "321BUS", VehicleColors.Red, VehicleTypes.Bus, 6);
             hugeGarage.AddPredefinedVehicle(ordinaryBus, 6);
 
             Vehicle coolerBike = new Airplane("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 7);
@@ -52,14 +52,14 @@ namespace CSharp_Garage_Task
 
         internal static Garage SpacedGarage()
         {
-            Garage spacedGarage = new Garage(12);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0);
+            Garage spacedGarage = new (12);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             spacedGarage.AddPredefinedVehicle(fastCar, 0);
 
             Vehicle mcBike = new Airplane("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1);
             spacedGarage.AddPredefinedVehicle(mcBike, 1);
 
-            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3);
+            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3, Car.CarBrand.Renualt);
             spacedGarage.AddPredefinedVehicle(fancyElectric, 3);
 
             Vehicle coolerBike = new Airplane("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 6);

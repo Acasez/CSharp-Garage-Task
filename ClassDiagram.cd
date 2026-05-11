@@ -59,7 +59,7 @@
   <Class Name="CSharp_Garage_Task.Motorcycle">
     <Position X="4.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -86,8 +86,15 @@
   </Class>
   <Class Name="CSharp_Garage_Task.Car">
     <Position X="4.25" Y="4.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="CSharp_Garage_Task.Car.CarBrand" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Car.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAABAAAEAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Car.cs</FileName>
     </TypeIdentifier>
   </Class>

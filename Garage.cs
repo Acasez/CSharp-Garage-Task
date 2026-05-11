@@ -160,7 +160,8 @@ namespace CSharp_Garage_Task
             switch (vehicleType)
             {
                 case VehicleTypes.Car: //TODO, custom properties
-                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
+                    Car.CarBrand carBrand = Car.GetCarBrand();
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles, carBrand);
                     break;
                 case VehicleTypes.Motorcycle:
                     newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, ParkedVehicles);
