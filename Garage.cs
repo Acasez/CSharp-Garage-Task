@@ -219,10 +219,12 @@ namespace CSharp_Garage_Task
             VehicleTypes? typeFilter = null;
             VehicleColors? colorFilter = null;
             int? wheelCountFilter = null;
-
+            int fittingVehicles = 0;
             bool looping = true;
             while (looping)
             {
+                fittingVehicles = 0;
+                DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
                 for (int i = 0; i < vehicles.Length; i++)
                 {
                     if (vehicles[i] != null)
@@ -248,10 +250,14 @@ namespace CSharp_Garage_Task
                                 continue;
                             }
                         }
+                        fittingVehicles++;
                         Helper.WriteMessage(vehicles[i].ToString());
                     }
                 }
-
+                if (fittingVehicles == 0)
+                {
+                    Helper.WriteWarningMessage("No vehicles fitting filters");
+                }
                 Helper.WriteMessage(vehicleFilter);
                 FilterOptions filter = GetFilterOption();
                 Helper.WriteMessage("Setup " + filter);
@@ -278,6 +284,26 @@ namespace CSharp_Garage_Task
                         Helper.WriteErrorMessage("Invalid input, select a valid one.");
                         break;
                 }
+            }
+        }
+
+        private static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
+        {
+            if (typeFilter == null && colorFilter == null && wheelCountFilter == null)
+            {
+                Helper.WriteMessage("No filters currently");
+            }
+            if (typeFilter != null)
+            {
+                Helper.WriteMessage("Type filter: " + typeFilter);
+            }
+            if (colorFilter != null)
+            {
+                Helper.WriteMessage("Color filter: " + colorFilter);
+            }
+            if (wheelCountFilter != null)
+            {
+                Helper.WriteMessage("Wheel count filter: " + wheelCountFilter);
             }
         }
 
