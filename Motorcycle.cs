@@ -6,6 +6,7 @@ namespace CSharp_Garage_Task
 {
     internal class Motorcycle : Vehicle
     {
+        public int Value { get; private set; }
         public Motorcycle(string name, string registerID, Garage.VehicleColors color, Garage.VehicleTypes vehicleType, int parkedNumber) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             Wheels = 2;
