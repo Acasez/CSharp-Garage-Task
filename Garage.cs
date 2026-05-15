@@ -172,7 +172,6 @@ namespace CSharp_Garage_Task
                     {
                         Helper.WriteErrorMessage("Invalid input");
                     }
-                    
                     break;
                 case VehicleTypes.Airplane:
                     Helper.WriteMessage("How many flight hours do the plane have?");
@@ -400,7 +399,7 @@ namespace CSharp_Garage_Task
         {
             foreach (FilterOptions type in Enum.GetValues<FilterOptions>())
             {
-                Helper.WriteMessage((int)type + ": Vehicle " + type.ToString());
+                Helper.WriteMessage((int)type + (type == 0 ? ": " : ": Vehicle ") + type.ToString());
             }
             if (!int.TryParse(Console.ReadLine(), out int vehicleFilterInt))
             {
