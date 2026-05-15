@@ -7,7 +7,7 @@ using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
 {
-    internal class Garage<T>: IEnumerable<T> where T:Vehicle
+    internal class Garage
     {
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
@@ -34,15 +34,6 @@ namespace CSharp_Garage_Task
             {
                 throw new ArgumentException("Garage cannot be smaller than 0");
             }
-        }
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
         }
 
         public void DisplayGarageSpaces()
